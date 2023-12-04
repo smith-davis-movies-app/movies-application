@@ -112,11 +112,11 @@ class MoviesAPI {
         for (let movie of movies) {
             if (Array.isArray(movie.genre_ids)) {
                 movie.genreIds = movie.genre_ids.map(id => {
-                    const foundGenre = genreNames.find(genre => genre.id === id);
+                    const foundGenre = genreIds.find(genre => genre.id === id);
                     return foundGenre ? foundGenre.name : "Unknown";
                 });
             } else {
-                movie.genreNames = ["Unknown"];
+                movie.genreIds = ["Unknown"];
             }
         } return movies;
     }
